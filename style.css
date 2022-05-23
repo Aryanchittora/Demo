@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Heebo:wght@800&display=swap');
+
+:root {
+    --bg: #000026;
+    --speed: 4s;
+}
+
+body {
+    background: var(--bg);
+    background-size: 200%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
+h1 {
+    font-family: 'Anonymous Pro', monospace;
+    color: #97a3ff;
+    position: relative;
+}
+
+h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--bg);
+    background-size: 200%;
+    animation: type var(--speed) steps(17) forwards;              ;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    width: .115em;
+    background: #97a3ff;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    animation: type var(--speed) steps(17) forwards,
+               blink 500ms ease infinite;
+}
+
+.subtitle {
+    font-family: 'Heebo', sans-serif;
+    color: #d1d1d1;
+    opacity: 0;
+    animation: fade 1s ease 5s forwards;
+    transform: translateY(.5em)
+}
+
+@keyframes type {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        background-color: #97a3ffb7;
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+        transform: translateY(-.5em);
+    }
+}
